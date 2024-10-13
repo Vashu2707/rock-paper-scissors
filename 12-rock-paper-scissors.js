@@ -31,31 +31,31 @@ function autoPlay() {
 };
 
 function playGame(playerMove) {
-let computerMove = pickComputerMove();
+  let computerMove = pickComputerMove();
 
-let result = '';
+  let result = '';
 
-if (playerMove === 'Scissors') {
-  if (computerMove === 'Rock') {
-    result = 'You Lose.';
-  }
-  else if (computerMove === 'Paper') {
-    result = 'You Win.';
-  }
-  else if (computerMove === 'Scissors') {
-    result = 'Tie.';
-  }
-  
-}  else if (playerMove === 'Paper') {
+  if (playerMove === 'Scissors') {
     if (computerMove === 'Rock') {
-      result = 'You Win.';
-    }
-    else if (computerMove === 'Paper') {
-      result = 'Tie.';
-    }
-    else if (computerMove === 'Scissors') {
       result = 'You Lose.';
     }
+    else if (computerMove === 'Paper') {
+      result = 'You Win.';
+    }
+    else if (computerMove === 'Scissors') {
+      result = 'Tie.';
+    }
+    
+  }  else if (playerMove === 'Paper') {
+      if (computerMove === 'Rock') {
+        result = 'You Win.';
+      }
+      else if (computerMove === 'Paper') {
+        result = 'Tie.';
+      }
+      else if (computerMove === 'Scissors') {
+        result = 'You Lose.';
+      }
 
   } else if(playerMove === 'Rock') {
     if (computerMove === 'Rock') {
@@ -67,30 +67,28 @@ if (playerMove === 'Scissors') {
     else if (computerMove === 'Scissors') {
       result = 'You Win.';
     }
-}
+  }
 
-if (result=== 'You Win.') {
-  score.wins += 1;
+  if (result=== 'You Win.') {
+    score.wins += 1;
   }
   else if (result === 'You Lose.') {
     score.losses += 1;
   }
   else if (result === 'Tie.') {
    score.ties += 1;
-};
+  };
 
-localStorage.setItem('score', JSON.stringify(score));
+  localStorage.setItem('score', JSON.stringify(score));
 
-updateScoreElement();
+  updateScoreElement();
 
-document.querySelector('.js-result').innerHTML = result;
+  document.querySelector('.js-result').innerHTML = result;
 
-document.querySelector('.js-moves').innerHTML = `You
-<img class="move-icon" type=png src="Images/${playerMove}-emoji.png">
-<img class="move-icon" type=png src="Images/${computerMove}-emoji.png">			
-Computer`;
-
-
+  document.querySelector('.js-moves').innerHTML = `<span class="player-text">You</span>
+  <img class="move-icon" type=png src="Images/${playerMove}-emoji.png">
+  <img class="move-icon" type=png src="Images/${computerMove}-emoji.png">			
+  <span class="player-text">Computer</span>`;
 }
 
 function updateScoreElement() {
@@ -102,15 +100,14 @@ function pickComputerMove() {
 
   let computerMove = '';
 
-if (randomNumber>=0 && randomNumber<1/3) {
-  computerMove = 'Rock';
+  if (randomNumber>=0 && randomNumber<1/3) {
+    computerMove = 'Rock';
+  }
+  else if (randomNumber>= 1/3 && randomNumber<2/3) {
+    computerMove = 'Paper';
+  }
+  else if(randomNumber>= 2/3 && randomNumber<1) {
+    computerMove = 'Scissors';
+  }
+  return computerMove;
 }
-else if (randomNumber>= 1/3 && randomNumber<2/3) {
-  computerMove = 'Paper';
-}
-else if(randomNumber>= 2/3 && randomNumber<1) {
-  computerMove = 'Scissors';
-}
-return computerMove;
-}
-
