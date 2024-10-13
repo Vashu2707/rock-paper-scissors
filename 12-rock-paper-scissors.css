@@ -1,18 +1,22 @@
-:root{
+:root {
   --bg-col: rgb(25, 25, 25);
+  --font-size-base: 16px;
+  --font-size-large: 24px;
+  --font-size-xlarge: 36px;
 }
-body{
+
+body {
   background-color: var(--bg-col);
-}
-p{
-  color: white;
+  font-size: var(--font-size-base);
   font-family: Arial;
 }
-.title{
-  font-size: 30px;
+
+.title {
+  font-size: var(--font-size-large);
   font-weight: bold;
 }
-.move-button{
+
+.move-button {
   width: 120px;
   height: 120px;
   border-radius: 60px;
@@ -24,20 +28,87 @@ p{
   align-items: center;
   margin-right: 0px;
   margin-bottom: 12px;
+  font-size: 1.5em; /* relative to base font size */
 }
-.move-icon{
+
+.move-icon {
   background-color: var(--bg-col);
   height: 50px;
+  width: 50px; /* added width to maintain aspect ratio */
 }
-.result{
-  font-size: 25px;
+
+.result {
+  font-size: var(--font-size-xlarge);
   font-weight: bold;
 }
+
 .score-reset-button,
-.auto-play-button{
+.auto-play-button {
   background-color: white;
   border: none;
-  font-size: 15px;
+  font-size: 1.2em; /* relative to base font size */
   padding: 8px 15px;
   cursor: pointer;
+}
+
+/* Media queries for mobile devices */
+
+/* For screens with a maximum width of 768px (e.g., tablets) */
+@media only screen and (max-width: 768px) {
+  .move-button {
+    width: 90px;
+    height: 90px;
+    font-size: 1.2em;
+  }
+  .move-icon {
+    height: 40px;
+    width: 40px;
+  }
+  .result {
+    font-size: var(--font-size-large);
+  }
+  .score-reset-button,
+  .auto-play-button {
+    font-size: 1em;
+  }
+}
+
+/* For screens with a maximum width of 480px (e.g., mobile phones) */
+@media only screen and (max-width: 480px) {
+  .move-button {
+    width: 60px;
+    height: 60px;
+    font-size: 1em;
+  }
+  .move-icon {
+    height: 30px;
+    width: 30px;
+  }
+  .result {
+    font-size: var(--font-size-base);
+  }
+  .score-reset-button,
+  .auto-play-button {
+    font-size: 0.8em;
+  }
+}
+
+/* For screens with a maximum width of 320px (e.g., smaller mobile devices) */
+@media only screen and (max-width: 320px) {
+  .move-button {
+    width: 40px;
+    height: 40px;
+    font-size: 0.8em;
+  }
+  .move-icon {
+    height: 20px;
+    width: 20px;
+  }
+  .result {
+    font-size: var(--font-size-base);
+  }
+  .score-reset-button,
+  .auto-play-button {
+    font-size: 0.6em;
+  }
 }
