@@ -86,8 +86,8 @@ updateScoreElement();
 document.querySelector('.js-result').innerHTML = result;
 
 document.querySelector('.js-moves').innerHTML = `You
-<img class="move-icon" src="Images/${playerMove}-emoji.png">
-<img class="move-icon" src="sImages/${computerMove}-emoji.png">			
+<img class="move-icon" src="/Images/${playerMove}-emoji.png">
+<img class="move-icon" src="/Images/${computerMove}-emoji.png">			
 Computer`;
 
 
