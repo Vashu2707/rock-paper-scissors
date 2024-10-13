@@ -12,8 +12,12 @@ body {
 }
 
 .title {
-  font-size: var(--font-size-large);
+  font-size: 40px;
+  text-align: left;
   font-weight: bold;
+  color: rgb(240, 186, 9);
+  margin-top: 0;
+  margin-bottom: 18px;
 }
 
 .move-button {
@@ -39,16 +43,30 @@ body {
 
 .result {
   font-size: var(--font-size-xlarge);
+  color: rgb(240, 186, 9);
   font-weight: bold;
 }
 
-.score-reset-button,
-.auto-play-button {
-  background-color: white;
+.score-reset-button{
+  background-color: rgb(248, 11, 11);
+  color: white;
+  font-weight: bold;
   border: none;
   font-size: 1.2em; /* relative to base font size */
   padding: 8px 15px;
   cursor: pointer;
+  border-radius: 36px; 
+}
+
+.auto-play-button{
+  background-color: rgb(7, 133, 133);
+  color: white;
+  font-weight: bold;
+  border: none;
+  font-size: 1.2em; /* relative to base font size */
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 36px;
 }
 
 /* Media queries for mobile devices */
@@ -111,4 +129,21 @@ body {
   .auto-play-button {
     font-size: 0.6em;
   }
+}
+
+.js-score,
+.wins,
+.losses,
+.ties {
+  color: rgb(240, 186, 9);
+  font-size:28px;
+}
+
+.player-label,
+.computer-label {
+  color: rgb(240, 186, 9);
+}
+
+.player-text {
+  color: rgb(240, 186, 9);
 }
